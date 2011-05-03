@@ -3,7 +3,7 @@ MyPyGame
 INTRODUCTON
 
 A helpful wrapper for pygame. With this wrapper, once it is complete, you should 
-never have to touch
+never have to touch pygame directly.
 
 SETUP
 
