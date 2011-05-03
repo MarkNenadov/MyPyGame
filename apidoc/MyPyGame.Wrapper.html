@@ -1,0 +1,113 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module MyPyGame.Wrapper</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="MyPyGame.html"><font color="#ffffff">MyPyGame</font></a>.Wrapper</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///F:/development/portablegit/mypygame/mypygame/wrapper.py">f:\development\portablegit\mypygame\mypygame\wrapper.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pygame.html">pygame</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="MyPyGame.Wrapper.html#PyGameWrapper">PyGameWrapper</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PyGameWrapper">class <strong>PyGameWrapper</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PyGameWrapper-__init__"><strong>__init__</strong></a>(self, width, height, color_name, logging_level<font color="#909090">=2</font>)</dt><dd><tt>constructor<br>
+initialize&nbsp;pygame,&nbsp;set&nbsp;size&nbsp;of&nbsp;window,&nbsp;init&nbsp;screen,<br>
+build&nbsp;event&nbsp;handler&nbsp;mapping</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-e_key_down"><strong>e_key_down</strong></a>(self, payload<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PyGameWrapper-e_key_left"><strong>e_key_left</strong></a>(self, payload<font color="#909090">=None</font>)</dt><dd><tt>Left&nbsp;key&nbsp;event&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-e_key_right"><strong>e_key_right</strong></a>(self, payload<font color="#909090">=None</font>)</dt><dd><tt>Right&nbsp;key&nbsp;event&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-e_key_up"><strong>e_key_up</strong></a>(self, payload<font color="#909090">=None</font>)</dt><dd><tt>Up&nbsp;key&nbsp;event&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-e_mouse_button_down"><strong>e_mouse_button_down</strong></a>(self, payload<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PyGameWrapper-e_mouse_button_up"><strong>e_mouse_button_up</strong></a>(self, payload<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PyGameWrapper-e_mouse_motion"><strong>e_mouse_motion</strong></a>(self, payload<font color="#909090">=None</font>)</dt><dd><tt>Mouse&nbsp;motion&nbsp;event&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-e_quit"><strong>e_quit</strong></a>(self, payload<font color="#909090">=None</font>)</dt><dd><tt>Quit&nbsp;event&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-get_mouse_downtime"><strong>get_mouse_downtime</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PyGameWrapper-get_mouse_loc"><strong>get_mouse_loc</strong></a>(self)</dt><dd><tt>get_mouse_loc</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>get&nbsp;size<br>
+Get&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;Window</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-init_screen"><strong>init_screen</strong></a>(self, color_name)</dt><dd><tt>init_screen<br>
+create&nbsp;the&nbsp;screen&nbsp;and&nbsp;fill&nbsp;it&nbsp;with&nbsp;given&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-loop"><strong>loop</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PyGameWrapper-set_mouse_loc"><strong>set_mouse_loc</strong></a>(self, location)</dt><dd><tt>get_mouse_loc</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-set_size"><strong>set_size</strong></a>(self, width, height)</dt><dd><tt>set_size<br>
+Set&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="PyGameWrapper-sketcher"><strong>sketcher</strong></a>(self, size<font color="#909090">=5</font>, color<font color="#909090">='black'</font>)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>colormap</strong> = {'black': (0, 0, 0), 'white': (255, 255, 255)}</dl>
+
+<dl><dt><strong>dispatcher</strong> = None</dl>
+
+<dl><dt><strong>event_handler</strong> = {}</dl>
+
+<dl><dt><strong>height</strong> = 0</dl>
+
+<dl><dt><strong>last_mouse_button_down</strong> = None</dl>
+
+<dl><dt><strong>logger</strong> = None</dl>
+
+<dl><dt><strong>mouse_button_status</strong> = 0</dl>
+
+<dl><dt><strong>mouse_loc</strong> = None</dl>
+
+<dl><dt><strong>screen</strong> = None</dl>
+
+<dl><dt><strong>width</strong> = 0</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>LOGGING_CRAZY</strong> = 3<br>
+<strong>LOGGING_LIGHT</strong> = 1<br>
+<strong>LOGGING_NONE</strong> = 0<br>
+<strong>LOGGING_NORMAL</strong> = 2</td></tr></table>
+</body></html>
