@@ -21,7 +21,7 @@ class PyGameWrapper:
     mouse_button_status = 0
     last_mouse_button_down = None
     logger = None
-
+    snapshot = None
     screen = None
 
     def __init__(self, width, height, color_name, logging_level=LOGGING_NORMAL):
@@ -122,6 +122,7 @@ class PyGameWrapper:
         """
         self.logger.write("User pressed right key", LOGGING_LIGHT)
 
+
     def e_key_left(self, payload=None):
         """ Left key event handler
         """
@@ -151,7 +152,11 @@ class PyGameWrapper:
         while 1:
             self.logger.write("Main loop iteration #" + str(count), LOGGING_CRAZY)
             for event in pygame.event.get():
-                self.__process_event(event.type)
+                if event.type in [pygame.KEYUP, pygame.KEYDOWN]:
+                    classification = event.key
+                else:
+                    classification = event.type
+                self.__process_event(classification)
             pygame.display.flip()
             pygame.error
             count += 1

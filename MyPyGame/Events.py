@@ -9,6 +9,7 @@ class PyGameEventHandler:
 
     event_type = None
     method = None
+    source = None
     payload = None
 
     def __init__(self, event_type, method):
