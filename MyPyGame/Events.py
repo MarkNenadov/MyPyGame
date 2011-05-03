@@ -1,5 +1,23 @@
 import pygame 
 
+
+class PyGameEventHandler:
+    """ PyGameEventHandler
+    represents one mapping between a pygame event type and
+    a method to call
+    """
+
+    event_type = None
+    method = None
+    payload = None
+
+    def __init__(self, event_type, method):
+        self.event_type = event_type
+        self.method = method
+
+    def set_payload(self, method_name):
+        self.payload = method_name
+
 class PyGameDispatcher:
     event_handlers = []
 

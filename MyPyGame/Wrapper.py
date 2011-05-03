@@ -3,30 +3,13 @@ import time
 
 from MyPyGame.Logger import MyPyGameLogger
 from MyPyGame.Events import PyGameDispatcher
+from MyPyGame.Events import PyGameEventHandler
 from MyPyGame.constants import *
 
 try:
     import pygame
 except ImportError:
     print( "Critical Error: Can't import requirement (pygame)")
-
-class PyGameEventHandler:
-    """ PyGameEventHandler
-    represents one mapping between a pygame event type and
-    a method to call
-    """
-
-    event_type = None
-    method = None
-    payload = None
-
-    def __init__(self, event_type, method):
-        self.event_type = event_type
-        self.method = method
-
-    def set_payload(self, method_name):
-        print( "GOT HERE!" )
-        self.payload = method_name
 
 class PyGameWrapper:
     width = 0
