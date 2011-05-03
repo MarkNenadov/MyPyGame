@@ -21,7 +21,6 @@ class PyGameWrapper:
     mouse_button_status = 0
     last_mouse_button_down = None
     logger = None
-    snapshot = None
     screen = None
 
     def __init__(self, width, height, color_name, logging_level=LOGGING_NORMAL):
