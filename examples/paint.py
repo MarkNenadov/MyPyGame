@@ -5,6 +5,7 @@ from MyPyGame.Logging import ConsoleLoggingAdapter
 # use one of the following:
 #
 #from MyPyGame.Logging import TextFileLoggingAdapter
+#from MyPyGame.Logging import DBILoggingAdapter
 from MyPyGame.constants import *
 
 pgw = PyGameWrapper(320, 240, 'white', ConsoleLoggingAdapter(), LOGGING_LIGHT)

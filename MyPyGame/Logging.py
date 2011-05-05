@@ -98,6 +98,46 @@ class ConsoleLoggingAdapter(LogDataAdapter):
     def close(self):
         super(ConsoleLoggingAdapter, self).close()
 
+class DBILoggingAdapter(LogDataAdapter):
+    """ DBILoggingAdapter
+
+    Allow logging to any databse that supports the DBI 2.0
+    library. Can be passed to MyPyGameLogger's constructor
+
+    Note: MyPyGame assumes that the following table exists (although 
+    you can adjust the table name utilized by passing it as a second 
+    parameter to DBILoggingAdapter, namely the table name as a string):
+
+
+        CREATE  TABLE logs ("entry" VARCHAR NOT NULL )
+
+    """
+
+    conn = None
+    cursor = None
+    table_name = None
+
+    def __init__(self, conn, table_name='logs'):
+
+        super(DBILoggingAdapter, self).__init__()
+        
+        self.conn = conn
+        self.cursor = self.conn.cursor()
+        self.table_name = table_name
+
+    def save2log(self, data):
+        """ save log data into a textfile
+        """
+
+        super(DBILoggingAdapter, self).save2log(data)
+
+    def write(self, data):
+        self.cursor.execute("INSERT INTO " + self.table_name + " VALUES('"+data+"')")
+        self.conn.commit()
+
+    def close(self):
+        self.cursor.close
+        super(DBILoggingAdapter, self).close()
 
 
 class MyPyGameLogger:

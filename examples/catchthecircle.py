@@ -7,6 +7,7 @@ from MyPyGame.constants import *
 # use one of the following:
 #
 #from MyPyGame.Logging import TextFileLoggingAdapter
+#from MyPyGame.Logging import DBILoggingAdapter
 
 pgw = PyGameWrapper(320, 240, 'white', ConsoleLoggingAdapter(), LOGGING_LIGHT)
 pgw.dispatcher.set_payload("MOUSEMOTION", 'sketcher')
