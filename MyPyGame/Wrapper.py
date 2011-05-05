@@ -1,3 +1,31 @@
+"""
+MyPyGame - Wrapper.py
+
+AUTHOR
+
+Mark J. Nenadov (2011)
+* Essex, Ontario
+* Email: <marknenadov@gmail.com> 
+
+
+LICENSING
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version
+
+This program is distributed in the hope that it will be useful
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>. 
+
+"""
+
+
 import sys
 import time
 
@@ -12,9 +40,16 @@ except ImportError:
     print( "Critical Error: Can't import requirement (pygame)")
 
 class PyGameWrapper:
+    """ PyGame Wrapper
+
+    Provides a nice interface for using pygame without having
+    to get into too many details of the API
+
+    """
+
     width = 0
     height = 0
-    colormap = {'black':(0,0,0), 'white':(255,255,255)}
+    colormap = {'black':(0, 0, 0), 'white':(255, 255, 255)}
     event_handler = {}
     dispatcher = None
     mouse_loc = None
@@ -35,17 +70,23 @@ class PyGameWrapper:
         self.init_screen(color_name)
 
         self.dispatcher = PyGameDispatcher()
-        self.dispatcher.add(PyGameEventHandler(pygame.QUIT, 'e_quit'))
-        self.dispatcher.add(PyGameEventHandler(pygame.MOUSEMOTION, 'e_mouse_motion'))
-        self.dispatcher.add(PyGameEventHandler(pygame.K_ESCAPE, 'e_quit'))
-        self.dispatcher.add(PyGameEventHandler(pygame.K_UP, 'e_key_up'))
-        self.dispatcher.add(PyGameEventHandler(pygame.K_DOWN, 'e_key_down'))
-        self.dispatcher.add(PyGameEventHandler(pygame.K_LEFT, 'e_key_left'))
-        self.dispatcher.add(PyGameEventHandler(pygame.K_RIGHT, 'e_key_right'))
-        self.dispatcher.add(PyGameEventHandler(pygame.MOUSEBUTTONDOWN, 'e_mouse_button_down'))
-        self.dispatcher.add(PyGameEventHandler(pygame.MOUSEBUTTONUP, 'e_mouse_button_up'))
+        
+        event_handlers = [
+                          PyGameEventHandler(pygame.QUIT, 'e_quit'),
+                          PyGameEventHandler(pygame.MOUSEMOTION, 'e_mouse_motion'), 
+                          PyGameEventHandler(pygame.K_ESCAPE, 'e_quit'),
+                          PyGameEventHandler(pygame.K_UP, 'e_key_up'),
+                          PyGameEventHandler(pygame.K_DOWN, 'e_key_down'),
+                          PyGameEventHandler(pygame.K_LEFT, 'e_key_left'),
+                          PyGameEventHandler(pygame.K_RIGHT, 'e_key_right'),
+                          PyGameEventHandler(pygame.MOUSEBUTTONDOWN, 'e_mouse_button_down'),
+                          PyGameEventHandler(pygame.MOUSEBUTTONUP, 'e_mouse_button_up')
+                          ]
 
+        for event_handler in event_handlers:
+            self.dispatcher.add(event_handler)
 
+        
     def get_size(self):
         """ get size
         Get the size of the Window
@@ -58,6 +99,9 @@ class PyGameWrapper:
         return self.mouse_loc
 
     def get_mouse_downtime(self):
+        """ How long has the mouse been pressed for?
+        """
+
         if self.mouse_button_status:
             return time.time() - self.last_mouse_button_down
         return None
@@ -128,14 +172,22 @@ class PyGameWrapper:
         self.logger.write("User pressed left key", LOGGING_LIGHT)
 
     def e_key_down(self, payload=None):
+        """ Left key down handler
+        """
         self.logger.write("User pressed down key", LOGGING_LIGHT)
 
     def e_mouse_button_down(self, payload=None):
+        """ Event handler method for mouse press
+        """
+
         self.logger.write("User pressed mouse button down", LOGGING_LIGHT)
         self.mouse_button_status = 1
         self.last_mouse_button_down = time.time()
 
     def e_mouse_button_up(self, payload=None):
+        """ Event handler method for mouse release
+        """
+
         self.logger.write("User lifted off mouse button (it was down for " + \
                           str(self.get_mouse_downtime()) + " seconds)", LOGGING_LIGHT)
         self.mouse_button_status = 0
@@ -147,9 +199,12 @@ class PyGameWrapper:
 
 
     def loop(self):
-        count = 0
+        """ Main loop for MyPyGame 
+        """
+
+        cnt = 0
         while 1:
-            self.logger.write("Main loop iteration #" + str(count), LOGGING_CRAZY)
+            self.logger.write("Main loop iteration #" + str(cnt), LOGGING_CRAZY)
             for event in pygame.event.get():
                 if event.type in [pygame.KEYUP, pygame.KEYDOWN]:
                     classification = event.key
@@ -158,5 +213,5 @@ class PyGameWrapper:
                 self.__process_event(classification)
             pygame.display.flip()
             pygame.error
-            count += 1
+            cnt += 1
 
