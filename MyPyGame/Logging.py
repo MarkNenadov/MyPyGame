@@ -27,6 +27,79 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import time
 
+class LogDataAdapter(object):
+    """ LogAdapter
+
+    Provides interface between specific data storage and 
+    MyPyGameLogger, its children get passed to MyPyGameLogger
+    constructor
+
+    """
+
+    def __init__(self):
+        pass
+
+
+    def save2log(self, data):
+        timestamp = time.time()
+        self.write("(" + str(timestamp) + ")" + data)
+
+class TextFileLoggingAdapter(LogDataAdapter):
+    """ TextFileLoggingAdapter
+
+    Allow logging to a text file. Can be passed to MyPyGameLogger's
+    constructor
+
+    """
+
+    f = None
+
+    def __init__(self, file_name):
+        super(TextFileLoggingAdapter, self).__init__()
+        
+        self.f = open(file_name, 'a')
+
+    def save2log(self, data):
+        """ save log data into a textfile
+        """
+
+        super(TextFileLoggingAdapter, self).save2log(data)
+
+    def write(self, data):
+        self.f.write(data + "\n")
+
+    def close(self):
+        self.f.close()
+        super(TextFileLoggingAdapter, self).close()
+
+class ConsoleLoggingAdapter(LogDataAdapter):
+    """ ConsoleLoggingAdapter
+
+    Allow logging to a console. Can be passed to MyPyGameLogger's
+    constructor
+
+    """
+
+    f = None
+
+    def __init__(self):
+        super(ConsoleLoggingAdapter, self).__init__()
+        
+
+    def save2log(self, data):
+        """ print data into the console
+        """
+
+        super(ConsoleLoggingAdapter, self).save2log(data)
+
+    def write(self, data):
+        print(data)
+
+    def close(self):
+        super(ConsoleLoggingAdapter, self).close()
+
+
+
 class MyPyGameLogger:
     """ MyPyGameLogger
 
@@ -34,13 +107,14 @@ class MyPyGameLogger:
 
     """
     logging_level = None
-    console = 1
+    log_adapter = None
 
-    def __init__(self, logging_level):
+    def __init__(self, logging_level, log_adapter):
         """ Constructor
         """
 
         self.logging_level = logging_level
+        self.log_adapter = log_adapter
 
     def write(self, msg, requested_level):
         """ Write out a log entry
@@ -48,7 +122,7 @@ class MyPyGameLogger:
         output = ""
 
         if requested_level <= self.logging_level:
-            output =  "(" + str(time.time()) + ")" + msg 
-
-            if self.console:
-                print(output)
+            if not self.log_adapter.write(msg):
+                return False
+            return True
+        return False

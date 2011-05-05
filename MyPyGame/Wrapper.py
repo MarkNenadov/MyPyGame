@@ -58,13 +58,13 @@ class PyGameWrapper:
     logger = None
     screen = None
 
-    def __init__(self, width, height, color_name, logging_level=LOGGING_NORMAL):
+    def __init__(self, width, height, color_name, log_adapter, logging_level=LOGGING_NORMAL):
         """ constructor
         initialize pygame, set size of window, init screen,
         build event handler mapping
 
         """
-        self.logger = MyPyGameLogger(logging_level)
+        self.logger = MyPyGameLogger(logging_level, log_adapter)
         pygame.init()
         self.set_size(width, height)
         self.init_screen(color_name)
