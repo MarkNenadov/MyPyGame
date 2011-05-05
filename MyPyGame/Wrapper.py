@@ -29,7 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import sys
 import time
 
-from MyPyGame.Logger import MyPyGameLogger
+from MyPyGame.Logging import MyPyGameLogger
 from MyPyGame.Events import PyGameDispatcher
 from MyPyGame.Events import PyGameEventHandler
 from MyPyGame.constants import *

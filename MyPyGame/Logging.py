@@ -1,5 +1,5 @@
 """
-MyPyGame - Logger.py
+MyPyGame - Logging.py
 
 AUTHOR
 
