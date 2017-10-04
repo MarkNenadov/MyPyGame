@@ -8,7 +8,13 @@ never have to touch pygame directly.
 Logging is handled via a family of adapters (currently supporting DBI, TextFile,
 and Console)
 
+Tested most recently with Python 2.7.13/Python 3.6.2 and pygame 1.9.3
+
 SETUP
+
+Prerequisites
+
+* pygame module (ie: pip install pygame)
 
 Just run:
 

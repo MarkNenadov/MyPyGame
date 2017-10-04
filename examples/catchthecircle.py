@@ -1,5 +1,5 @@
 from MyPyGame.Wrapper import PyGameWrapper
-from PyGame.Logging import ConsoleLoggingAdapter
+from MyPyGame.Logging import ConsoleLoggingAdapter
 from MyPyGame.constants import *
 
 #
